@@ -16,6 +16,10 @@ app.get("/properties/:id", (request, response) => {
   const { id } = request.params;
   const property = getPropertyById(properties, id);
 
+  if(property === undefined) {
+    return response.status(404).send("Cannot find property");
+  }
+
   return response.status(200).send(property);
 });
 

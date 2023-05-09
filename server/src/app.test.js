@@ -28,4 +28,8 @@ describe("app", () => {
       })
       .expect(200);
   });
+
+  it("GET /properties/bad-id should respond with a 404 status code", async () => {
+    await request(app).get("/properties/bad-id").expect(404);
+  });
 });
